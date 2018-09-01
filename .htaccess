@@ -1,0 +1,34 @@
+RewriteEngine  On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#URLs Rewrite Rules
+
+#Main API, POST/GET Requests (it works fine with Postman, and Web Browser IDK what's wrong with Volley Requests)
+RewriteRule ^([^/]+)/? index.php?url=$1 [QSA,NC,L]
+
+#GET Request currently works with Volley Request 
+#Login
+#RewriteRule ^([^/]+)/([^/]+)? member.php?email=$s1&password=$s2 [QSA,NC,L]
+
+#Signup
+#RewriteRule ^([^/]+)/([^/]+)? member.php?request=$s1&name=$s2&email=$s3&password=$s4 [QSA,NC,L]
+
+#Add New Environment Controller 
+#RewriteRule ^([^/]+)/([^/]+)? controllerenvirnment.php?env_name=$s1&cont_serial=$s2&cont_type_id=$s3&member_id=$s4&location=$s5&envir_type=$s6 [QSA,NC,L]
+
+#Add New Environment Space To Certain Environment Controller
+#RewriteRule ^([^/]+)/([^/]+)? environmentspace.php?env_cont_id=$s1&env_space_type=$s1&env_space_name=$s2 [QSA,NC,L]
+
+#Add New Environment Space Devices To Specific Space in The User Environment
+#RewriteRule ^([^/]+)/([^/]+)? envirspacedevices.php?device_name=$s1&env_space_id=$s2&dev_cate_id=$s3&plugin_id=$s4 [QSA,NC,L]
+
+#Get All The Environment Controllers That Belong To Specific User
+#RewriteRule ^([^/]+)/([^/]+)? controllerenvirnment.php?uid=$s1 [QSA,NC,L]
+
+#Get All The Environment Spaces That Belong To Specific Controller For Specifc User
+#RewriteRule ^([^/]+)/([^/]+)? environmentspace.php?cont_env_id=$s1 [QSA,NC,L]
+
+#Get All The Devices That Belong To Specific Space In The Environment
+#RewriteRule ^([^/]+)/([^/]+)? envirspacedevices.php?space_id=$s1 [QSA,NC,L]
